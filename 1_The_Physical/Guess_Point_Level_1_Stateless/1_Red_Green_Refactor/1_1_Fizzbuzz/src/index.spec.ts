@@ -1,15 +1,18 @@
 import { fizzBuzz } from './fizzbuzz';
 
 describe('fizzbuzz', () => {
+  it('returns a string', () => {
+    [1, 2, 3, 4, 5, 6, 7].forEach(number =>
+      expect(typeof fizzBuzz(number) === 'string').toBeTruthy()
+    );
+  });
+
   it("doesn't accepts -1 as an argument because it's not between 1 and 100", () => {
     expect(() => fizzBuzz(-1)).toThrow('Too small number');
   });
 
   it("doesn't accepts 101 as an argument because it's more than 100", () => {
     expect(() => fizzBuzz(101)).toThrow('Too large number');
-  });
-  it('returns a string', () => {
-    expect(typeof fizzBuzz(5)).toBe('string');
   });
 
   it('returns Fizz for 3', () => {
