@@ -12,4 +12,11 @@ describe('fizzbuzz', () => {
   it("doesn't accepts 0 as an argument because it's not between 1 and 100", () => {
     expect(() => fizzBuzz(0)).toThrow('Too small number');
   });
+
+  it('returns Buzz for multiples of 5', () => {
+    [5, 10, 20, 25, 35, 40, 50, 55]
+      .map(multiple => fizzBuzz(multiple))
+      .forEach(m => expect(m).toEqual('Buzz'));
+  });
+  });
 });
