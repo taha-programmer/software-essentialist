@@ -6,4 +6,9 @@ describe('palindrome checker', () => {
     expect(palindromeChecker).toBeDefined();
   });
 
+  it('should return boolean', () => {
+    let palindromeChecker = new PalindromeChecker();
+    expect(typeof palindromeChecker.isAPalindrome('')).toBe('boolean');
+  });
+
 });
