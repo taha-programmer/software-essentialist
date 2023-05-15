@@ -1,3 +1,3 @@
-export const fizzbuzz = (n: number): string => {
-  return 'Fizz';
+export const fizzbuzz = (num: number): string => {
+  return num === 3 ? 'Fizz' : 'Buzz';
 };
