@@ -52,4 +52,8 @@ describe('fizzbuzz', () => {
   it('throws an error when given -12', () => {
     expect(() => fizzbuzz(-12)).toThrow();
   });
+
+  it('throws an error when given non-number input', () => {
+    expect(() => fizzbuzz('hello' as any)).toThrow();
+  });
 });
