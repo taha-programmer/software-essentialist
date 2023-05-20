@@ -23,12 +23,14 @@ describe('fizzbuzz', () => {
     expect(fizzbuzz(5)).toBe('Buzz');
   });
 
-  it('returns "FizzBuzz" when given 15', () => {
-    expect(fizzbuzz(15)).toBe('FizzBuzz');
-  });
+  describe('return "FizzBuzz" when given a multiple of 3 and 5', () => {
+    it('returns "FizzBuzz" when given 15', () => {
+      expect(fizzbuzz(15)).toBe('FizzBuzz');
+    });
 
-  it('returns "FizzBuzz" when given 45', () => {
-    expect(fizzbuzz(45)).toBe('FizzBuzz');
+    it('returns "FizzBuzz" when given 45', () => {
+      expect(fizzbuzz(45)).toBe('FizzBuzz');
+    });
   });
 
   it('returns "43" when given 43', () => {
