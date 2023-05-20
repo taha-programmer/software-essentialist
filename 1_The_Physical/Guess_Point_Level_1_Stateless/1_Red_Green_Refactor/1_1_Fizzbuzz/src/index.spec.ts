@@ -48,4 +48,8 @@ describe('fizzbuzz', () => {
   it('throws an error when given 102', () => {
     expect(() => fizzbuzz(102)).toThrow();
   });
+
+  it('throws an error when given -12', () => {
+    expect(() => fizzbuzz(-12)).toThrow();
+  });
 });
