@@ -1,8 +1,22 @@
 import { fizzbuzz } from './fizzbuzz';
 
 describe('fizzbuzz', () => {
-  it('returns a string', () => {
-    expect(typeof fizzbuzz(1)).toBe('string');
+  describe('Accept only input of type number, between 1 and 100, and returns string', () => {
+    it('throws an error when given non-number input', () => {
+      expect(() => fizzbuzz('hello' as any)).toThrow();
+    });
+
+    it('throws an error when given -12', () => {
+      expect(() => fizzbuzz(-12)).toThrow();
+    });
+
+    it('throws an error when given 102', () => {
+      expect(() => fizzbuzz(102)).toThrow();
+    });
+
+    it('returns a string', () => {
+      expect(typeof fizzbuzz(1)).toBe('string');
+    });
   });
 
   describe('return "Fizz" when given a multiple of 3', () => {
@@ -43,17 +57,5 @@ describe('fizzbuzz', () => {
 
   it('returns "43" when given 43', () => {
     expect(fizzbuzz(43)).toBe('43');
-  });
-
-  it('throws an error when given 102', () => {
-    expect(() => fizzbuzz(102)).toThrow();
-  });
-
-  it('throws an error when given -12', () => {
-    expect(() => fizzbuzz(-12)).toThrow();
-  });
-
-  it('throws an error when given non-number input', () => {
-    expect(() => fizzbuzz('hello' as any)).toThrow();
   });
 });
