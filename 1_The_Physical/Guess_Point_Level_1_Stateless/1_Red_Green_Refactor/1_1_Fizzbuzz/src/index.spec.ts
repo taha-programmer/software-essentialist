@@ -19,8 +19,16 @@ describe('fizzbuzz', () => {
     });
   });
 
-  it('returns "Buzz" when given 5', () => {
-    expect(fizzbuzz(5)).toBe('Buzz');
+  describe('return "Buzz" when given a multiple of 5', () => {
+    it('returns "Buzz" when given 5', () => {
+      expect(fizzbuzz(5)).toBe('Buzz');
+    });
+    it('returns "Buzz" when given 10', () => {
+      expect(fizzbuzz(10)).toBe('Buzz');
+    });
+    it('returns "Buzz" when given 20', () => {
+      expect(fizzbuzz(20)).toBe('Buzz');
+    });
   });
 
   describe('return "FizzBuzz" when given a multiple of 3 and 5', () => {
