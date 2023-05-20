@@ -44,4 +44,8 @@ describe('fizzbuzz', () => {
   it('returns "43" when given 43', () => {
     expect(fizzbuzz(43)).toBe('43');
   });
+
+  it('throws an error when given 102', () => {
+    expect(() => fizzbuzz(102)).toThrow();
+  });
 });
