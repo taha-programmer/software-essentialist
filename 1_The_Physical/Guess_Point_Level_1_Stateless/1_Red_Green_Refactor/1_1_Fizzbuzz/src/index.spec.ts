@@ -20,38 +20,30 @@ describe('fizzbuzz', () => {
   });
 
   describe('return "Fizz" when given a multiple of 3', () => {
-    it('returns "Fizz" when given 3', () => {
-      expect(fizzbuzz(3)).toBe('Fizz');
-    });
-
-    it('returns "Fizz" when given 9', () => {
-      expect(fizzbuzz(9)).toBe('Fizz');
-    });
-
-    it('returns "Fizz" when given 42', () => {
-      expect(fizzbuzz(42)).toBe('Fizz');
+    it.each([
+      [3, 'Fizz'],
+      [9, 'Fizz'],
+      [42, 'Fizz'],
+    ])('when given %i it returns %s', (num, expected) => {
+      expect(fizzbuzz(num)).toBe(expected);
     });
   });
 
   describe('return "Buzz" when given a multiple of 5', () => {
-    it('returns "Buzz" when given 5', () => {
-      expect(fizzbuzz(5)).toBe('Buzz');
-    });
-    it('returns "Buzz" when given 10', () => {
-      expect(fizzbuzz(10)).toBe('Buzz');
-    });
-    it('returns "Buzz" when given 20', () => {
-      expect(fizzbuzz(20)).toBe('Buzz');
+    it.each([
+      [5, 'Buzz'],
+      [10, 'Buzz'],
+      [20, 'Buzz'],
+    ])('when given %i it returns %s', (num, expected) => {
+      expect(fizzbuzz(num)).toBe(expected);
     });
   });
 
   describe('return "FizzBuzz" when given a multiple of 3 and 5', () => {
-    it('returns "FizzBuzz" when given 15', () => {
-      expect(fizzbuzz(15)).toBe('FizzBuzz');
-    });
-
-    it('returns "FizzBuzz" when given 45', () => {
-      expect(fizzbuzz(45)).toBe('FizzBuzz');
+    [15, 30, 45, 60, 75, 90].forEach(num => {
+      test(`when given ${num} it returns "FizzBuzz"`, () => {
+        expect(fizzbuzz(num)).toBe('FizzBuzz');
+      });
     });
   });
 
