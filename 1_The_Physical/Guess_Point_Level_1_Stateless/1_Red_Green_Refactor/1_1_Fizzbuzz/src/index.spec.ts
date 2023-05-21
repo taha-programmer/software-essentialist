@@ -20,22 +20,14 @@ describe('fizzbuzz', () => {
   });
 
   describe('return "Fizz" when given a multiple of 3', () => {
-    it.each([
-      [3, 'Fizz'],
-      [9, 'Fizz'],
-      [42, 'Fizz'],
-    ])('when given %i it returns %s', (num, expected) => {
-      expect(fizzbuzz(num)).toBe(expected);
+    it.each([[3], [9], [42]])('when given %i it returns Fizz', num => {
+      expect(fizzbuzz(num)).toBe('Fizz');
     });
   });
 
   describe('return "Buzz" when given a multiple of 5', () => {
-    it.each([
-      [5, 'Buzz'],
-      [10, 'Buzz'],
-      [20, 'Buzz'],
-    ])('when given %i it returns %s', (num, expected) => {
-      expect(fizzbuzz(num)).toBe(expected);
+    it.each([[5], [10], [20]])('when given %i it returns Buzz', num => {
+      expect(fizzbuzz(num)).toBe('Buzz');
     });
   });
 
