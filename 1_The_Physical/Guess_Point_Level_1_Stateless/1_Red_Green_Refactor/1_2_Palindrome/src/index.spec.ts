@@ -7,4 +7,8 @@ describe('palindrome checker', () => {
   it('knows that "mom" is a palindrome', () => {
     expect(palindromeChecker.isPalindrome('mom')).toBe(true);
   });
+
+  it('knows that "Mom" is a palindrome', () => {
+    expect(palindromeChecker.isPalindrome('mom')).toBe(true);
+  });
 });
