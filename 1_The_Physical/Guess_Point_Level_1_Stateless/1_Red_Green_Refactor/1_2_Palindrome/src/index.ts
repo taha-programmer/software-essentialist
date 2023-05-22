@@ -1,3 +1,3 @@
 export class PalindromeChecker {
-  public isPalindrome = (input: string): boolean => false;
+  public isPalindrome = (input: string): boolean => true;
 }
