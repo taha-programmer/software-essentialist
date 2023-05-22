@@ -9,6 +9,10 @@ describe('palindrome checker', () => {
   });
 
   it('knows that "Mom" is a palindrome', () => {
-    expect(palindromeChecker.isPalindrome('mom')).toBe(true);
+    expect(palindromeChecker.isPalindrome('Mom')).toBe(true);
+  });
+
+  it('knows that "MoM" is a palindrome', () => {
+    expect(palindromeChecker.isPalindrome('MoM')).toBe(true);
   });
 });
