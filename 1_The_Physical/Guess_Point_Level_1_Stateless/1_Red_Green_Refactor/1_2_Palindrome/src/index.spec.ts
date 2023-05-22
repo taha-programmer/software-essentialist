@@ -16,7 +16,7 @@ describe('palindrome checker', () => {
     expect(palindromeChecker.isPalindrome('MoM')).toBe(true);
   });
 
-  it('knows that "Momx" is a palindrome', () => {
+  it('knows that "Momx" is NOT a palindrome', () => {
     expect(palindromeChecker.isPalindrome('Momx')).toBe(false);
   });
 });
