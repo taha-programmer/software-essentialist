@@ -31,4 +31,8 @@ describe('palindrome checker', () => {
   it('knows that "bill" is NOT a palindrome', () => {
     expect(palindromeChecker.isPalindrome('bill')).toBe(false);
   });
+
+  it('knows that "Never Odd or Even" is a palindrome', () => {
+    expect(palindromeChecker.isPalindrome('Never Odd or Even')).toBe(true);
+  });
 });
