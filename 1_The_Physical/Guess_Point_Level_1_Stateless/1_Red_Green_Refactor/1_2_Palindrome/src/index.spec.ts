@@ -4,39 +4,53 @@ describe('palindrome checker', () => {
   let palindromeChecker: PalindromeChecker;
   palindromeChecker = new PalindromeChecker();
 
-  it('knows that "mom" is a palindrome', () => {
-    expect(palindromeChecker.isPalindrome('mom')).toBe(true);
+  it.each([
+    ['mom', true],
+    ['mom', true],
+    ['dad', true],
+    ['racecar', true],
+    ['madam', true],
+    ['level', true],
+    ['refer', true],
+    ['wow', true],
+    ['radar', true],
+    ['tenet', true],
+    ['stats', true],
+    ['noon', true],
+  ])('knows that "%s" is a palindrome', (input, expected) => {
+    expect(palindromeChecker.isPalindrome(input)).toBe(expected);
   });
 
-  it('knows that "Mom" is a palindrome', () => {
-    expect(palindromeChecker.isPalindrome('Mom')).toBe(true);
-  });
+  it.each([
+    ['Mom', true],
+    ['MoM', true],
+    ['xMomx', true],
+  ])(
+    'Recognizes palindromes even when casing is off such as "%s"',
+    (input, expected) => {
+      expect(palindromeChecker.isPalindrome(input)).toBe(expected);
+    }
+  );
 
-  it('knows that "MoM" is a palindrome', () => {
-    expect(palindromeChecker.isPalindrome('MoM')).toBe(true);
-  });
+  it.each([
+    ['Was It A Rat I Saw', true],
+    ['Never Odd or Even', true],
+    ['1Never Odd or Even1', true],
+  ])(
+    'Recognizes palindrome sentences even when casing is off such as "%s"',
+    (input, expected) => {
+      expect(palindromeChecker.isPalindrome(input)).toBe(expected);
+    }
+  );
 
-  it('knows that "Momx" is NOT a palindrome', () => {
-    expect(palindromeChecker.isPalindrome('Momx')).toBe(false);
-  });
-
-  it('knows that "xMomx" is a palindrome', () => {
-    expect(palindromeChecker.isPalindrome('xMomx')).toBe(true);
-  });
-
-  it('knows that "Was It A Rat I Saw" is a palindrome', () => {
-    expect(palindromeChecker.isPalindrome('Was It A Rat I Saw')).toBe(true);
-  });
-
-  it('knows that "bill" is NOT a palindrome', () => {
-    expect(palindromeChecker.isPalindrome('bill')).toBe(false);
-  });
-
-  it('knows that "Never Odd or Even" is a palindrome', () => {
-    expect(palindromeChecker.isPalindrome('Never Odd or Even')).toBe(true);
-  });
-
-  it('knows that "Never Odd or Even1" is NOT a palindrome', () => {
-    expect(palindromeChecker.isPalindrome('Never Odd or Even1')).toBe(false);
-  });
+  it.each([
+    ['Momx', false],
+    ['bill', false],
+    ['Never Odd or Even1', false],
+  ])(
+    'Recognizes words and sentences that are not palindromes, such as "%s"',
+    (input, expected) => {
+      expect(palindromeChecker.isPalindrome(input)).toBe(expected);
+    }
+  );
 });
