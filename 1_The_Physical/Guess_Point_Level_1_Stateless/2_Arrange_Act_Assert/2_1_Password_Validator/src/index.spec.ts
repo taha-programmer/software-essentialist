@@ -19,22 +19,19 @@ describe('password validator', () => {
     );
   });
 
-  it('knows that "hihow1" contains at least 1 digit', () => {
-    let resultObject = PasswordValidator.check('hihow1');
-    expect(resultObject.result).toBeTruthy();
-    expect(resultObject.errors.length).toEqual(0);
-  });
-
-  it('knows that "thatsgr8" contains at least 1 digit', () => {
-    let resultObject = PasswordValidator.check('thatsgr8');
-    expect(resultObject.result).toBeTruthy();
-    expect(resultObject.errors.length).toEqual(0);
-  });
-
-  it('knows that "howareyou" does NOT contains at least 1 digit', () => {
-    let resultObject = PasswordValidator.check('howareyou');
-    expect(resultObject.result).toBeFalsy();
-    expect(resultObject.errors.length).toEqual(1);
-    expect(resultObject.errors[0]).toBe('NoDigitsFound');
+  describe('Accepts passwords that contains at least 1 digit', () => {
+    it.each([
+      ['hihow1', true, []],
+      ['thatsgr8', true, []],
+      ['howareyou', false, ['NoDigitsFound']],
+    ])(
+      'knows that %s should return %s',
+      (input: string, result: boolean, errors: string[]) => {
+        let resultObject = PasswordValidator.check(input);
+        expect(resultObject.result).toBe(result);
+        expect(resultObject.errors).toHaveLength(errors.length);
+        expect(resultObject.errors).toEqual(errors);
+      }
+    );
   });
 });
