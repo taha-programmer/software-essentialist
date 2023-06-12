@@ -13,3 +13,9 @@ describe('password validator', () => {
     expect(resultObject.errors.length).toBe(0);
   });
 
+  it('knows that "mom" is NOT valid because it\'s NOT between 5 & 15 charachters long', () => {
+    let resultObject = PasswordValidator.check('mom');
+    expect(resultObject.result).toBeFalsy();
+    expect(resultObject.errors.length).toBe(1);
+  });
+});
