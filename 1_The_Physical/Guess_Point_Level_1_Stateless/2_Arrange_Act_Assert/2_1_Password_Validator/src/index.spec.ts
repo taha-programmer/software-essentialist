@@ -30,4 +30,11 @@ describe('password validator', () => {
     expect(resultObject.result).toBeTruthy();
     expect(resultObject.errors.length).toEqual(0);
   });
+
+  it('knows that "howareyou" does NOT contains at least 1 digit', () => {
+    let resultObject = PasswordValidator.check('howareyou');
+    expect(resultObject.result).toBeFalsy();
+    expect(resultObject.errors.length).toEqual(1);
+    expect(resultObject.errors[0]).toBe('NoDigitsFound');
+  });
 });
