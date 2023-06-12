@@ -22,6 +22,7 @@ describe('password validator', () => {
       let errorsLength = resultObject.errors.length;
       expect(resultObject.result).toBeFalsy();
       expect(resultObject.errors.length).toBe(errorsLength);
+      expect(resultObject.errors[0]).toBe('InvalidLength');
     });
   });
 });
