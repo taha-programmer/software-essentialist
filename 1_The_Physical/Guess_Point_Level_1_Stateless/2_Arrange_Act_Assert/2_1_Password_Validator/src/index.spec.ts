@@ -50,4 +50,26 @@ describe('password validator', () => {
       }
     );
   });
+
+  describe('Combines all errors in occurance', () => {
+    it.each([
+      [
+        'hi',
+        false,
+        ['NoUpperCaseLettersFound', 'InvalidLength', 'NoDigitsFound'],
+      ],
+      ['gr8', false, ['InvalidLength', 'NoUpperCaseLettersFound']],
+      ['howareyou', false, ['NoUpperCaseLettersFound', 'NoDigitsFound']],
+    ])(
+      'knows that %s should return %s and this collection of errors %s',
+      (input: string, result: boolean, errors: string[]) => {
+        let resultObject = PasswordValidator.check(input);
+        expect(resultObject.result).toBe(result);
+        expect(resultObject.errors).toHaveLength(errors.length);
+        resultObject.errors.forEach(productionCodeError => {
+          expect(errors).toContain(productionCodeError);
+        });
+      }
+    );
+  });
 });
