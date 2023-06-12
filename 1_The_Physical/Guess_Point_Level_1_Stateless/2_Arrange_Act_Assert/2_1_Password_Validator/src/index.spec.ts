@@ -24,4 +24,10 @@ describe('password validator', () => {
     expect(resultObject.result).toBeTruthy();
     expect(resultObject.errors.length).toEqual(0);
   });
+
+  it('knows that "thatsgr8" contains at least 1 digit', () => {
+    let resultObject = PasswordValidator.check('thatsgr8');
+    expect(resultObject.result).toBeTruthy();
+    expect(resultObject.errors.length).toEqual(0);
+  });
 });
