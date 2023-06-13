@@ -8,6 +8,7 @@ describe('password validator', () => {
       ['Mom2', false, ['InvalidLength']],
       ['Wh3t', false, ['InvalidLength']],
       ['WhyidkJiejajdkajdakkdji9Jjda', false, ['InvalidLength']],
+      ['thePhysical1234567', false, ['InvalidLength']],
     ])(
       'knows that %s should return %s',
       (input: string, result: boolean, errors: string[]) => {
@@ -24,6 +25,7 @@ describe('password validator', () => {
       ['Hihow1', true, []],
       ['Thatsgr8', true, []],
       ['Howareyou', false, ['NoDigitsFound']],
+      ['maxwellTheBe', false, ['NoDigitsFound']],
     ])(
       'knows that %s should return %s',
       (input: string, result: boolean, errors: string[]) => {
@@ -40,6 +42,7 @@ describe('password validator', () => {
       ['yourGr8', true, []],
       ['Gr8Password', true, []],
       ['howareyou1', false, ['NoUpperCaseLettersFound']],
+      ['maxwell1_c', false, ['NoUpperCaseLettersFound']],
     ])(
       'knows that %s should return %s',
       (input: string, result: boolean, errors: string[]) => {
