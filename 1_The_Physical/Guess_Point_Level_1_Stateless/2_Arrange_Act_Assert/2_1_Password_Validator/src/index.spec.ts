@@ -2,16 +2,17 @@ import { PasswordValidator } from './index';
 
 describe('password validator', () => {
   describe('Accepts passwords that are between 5 & 15 chars long', () => {
-    it.each([
-      ['Watermelon1', true, []],
-      ['Thinking2', true, []],
-      ['Mom2', false, ['InvalidLength']],
-      ['Wh3t', false, ['InvalidLength']],
-      ['WhyidkJiejajdkajdakkdji9Jjda', false, ['InvalidLength']],
-      ['thePhysical1234567', false, ['InvalidLength']],
-    ])(
-      'knows that %s should return %s',
-      (input: string, result: boolean, errors: string[]) => {
+    test.each`
+      input                             | result   | not      | errors
+      ${'Watermelon1'}                  | ${true}  | ${''}    | ${[]}
+      ${'Thinking2'}                    | ${true}  | ${''}    | ${[]}
+      ${'Mom2'}                         | ${false} | ${'not'} | ${['InvalidLength']}
+      ${'Wh3t'}                         | ${false} | ${'not'} | ${['InvalidLength']}
+      ${'WhyidkJiejajdkajdakkdji9Jjda'} | ${false} | ${'not'} | ${['InvalidLength']}
+      ${'thePhysical1234567'}           | ${false} | ${'not'} | ${['InvalidLength']}
+    `(
+      "knows that $input is $not valid because it's $not between 5-15 chars long",
+      ({ input, result, errors }) => {
         let resultObject = PasswordValidator.check(input);
         expect(resultObject.result).toBe(result);
         expect(resultObject.errors).toHaveLength(errors.length);
