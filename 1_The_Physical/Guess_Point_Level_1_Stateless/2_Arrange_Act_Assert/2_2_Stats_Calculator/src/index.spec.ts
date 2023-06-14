@@ -5,5 +5,9 @@ describe('stats calculator', () => {
     expect(StatsCalculator).toBeDefined();
   });
 
+  it('returns an object', () => {
+    const result = StatsCalculator.calculateStats([3, 4, 5, 6]);
+    expect(typeof result).toBe('object');
+  });
+});
 
-})
