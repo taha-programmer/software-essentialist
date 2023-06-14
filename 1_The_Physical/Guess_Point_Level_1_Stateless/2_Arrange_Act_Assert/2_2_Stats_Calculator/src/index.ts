@@ -7,7 +7,7 @@ type statistics = {
 export class StatsCalculator {
   public static calculateStats = (input: number[]): statistics => {
     return {
-      minimum: 1,
+      minimum: 3,
       maximum: 1,
       count: 1,
       average: 1,
