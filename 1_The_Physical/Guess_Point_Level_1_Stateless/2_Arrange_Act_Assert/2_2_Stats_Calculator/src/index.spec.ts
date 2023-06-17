@@ -26,73 +26,62 @@ describe('stats calculator', () => {
   });
 
   describe('Calculate minimum value in a sequence', () => {
-    it(`knows that 3 is the minimum value in this sequence ${firstSequence}`, () => {
-      let result = StatsCalculator.calculateStats(firstSequence);
-      expect(result.minimum).toBe(3);
-    });
-
-    it(`knows that 101 is the minimum value in this sequence ${secondSequence}`, () => {
-      let result = StatsCalculator.calculateStats(secondSequence);
-      expect(result.minimum).toBe(101);
-    });
-
-    it(`knows that 26 is the minimum value in this sequence ${thirdSequence}`, () => {
-      let result = StatsCalculator.calculateStats(thirdSequence);
-      expect(result.minimum).toBe(26);
-    });
-
-    it(`knows that 27 is the minimum value in this sequence ${fourthSequence}`, () => {
-      let result = StatsCalculator.calculateStats(fourthSequence);
-      expect(result.minimum).toBe(27);
-    });
+    it.each([
+      [3, firstSequence],
+      [101, secondSequence],
+      [26, thirdSequence],
+      [27, fourthSequence],
+    ])(
+      `knows that %s is the minimum value in this sequence %s`,
+      (mimimum: number, sequence: number[]) => {
+        let result = StatsCalculator.calculateStats(sequence);
+        expect(result.minimum).toBe(mimimum);
+      }
+    );
   });
 
   describe('Calculate maximum value in a sequence', () => {
-    it(`knows that 15 is the Maximum value in this sequence ${firstSequence}`, () => {
-      let result = StatsCalculator.calculateStats(firstSequence);
-      expect(result.maximum).toBe(15);
-    });
-    it(`knows that 701 is the Maximum value in this sequence ${secondSequence}`, () => {
-      let result = StatsCalculator.calculateStats(secondSequence);
-      expect(result.maximum).toBe(701);
-    });
-    it(`knows that 176 is the Maximum value in this sequence ${thirdSequence}`, () => {
-      let result = StatsCalculator.calculateStats(thirdSequence);
-      expect(result.maximum).toBe(176);
-    });
-    it(`knows that 177 is the Maximum value in this sequence ${fourthSequence}`, () => {
-      let result = StatsCalculator.calculateStats(fourthSequence);
-      expect(result.maximum).toBe(177);
-    });
+    it.each([
+      [15, firstSequence],
+      [701, secondSequence],
+      [176, thirdSequence],
+      [177, fourthSequence],
+    ])(
+      `knows that %s is the Maximum value in this sequence %s`,
+      (maximum: number, sequence: number[]) => {
+        let result = StatsCalculator.calculateStats(sequence);
+        expect(result.maximum).toBe(maximum);
+      }
+    );
   });
 
   describe('Calculate count of a sequence', () => {
-    it(`knows that the count of the sequence ${firstSequence} is ${firstSequence.length}`, () => {
-      let result = StatsCalculator.calculateStats(firstSequence);
-      expect(result.count).toBe(firstSequence.length);
-    });
-    it(`knows that the count of the sequence ${secondSequence} is ${secondSequence.length}`, () => {
-      let result = StatsCalculator.calculateStats(secondSequence);
-      expect(result.count).toBe(secondSequence.length);
-    });
-    it(`knows that the count of the sequence ${thirdSequence} is ${thirdSequence.length}`, () => {
-      let result = StatsCalculator.calculateStats(thirdSequence);
-      expect(result.count).toBe(thirdSequence.length);
-    });
+    it.each([
+      [firstSequence.length, firstSequence],
+      [secondSequence.length, secondSequence],
+      [thirdSequence.length, thirdSequence],
+      [fourthSequence.length, fourthSequence],
+    ])(
+      `knows that %s is the count of items in sequence %s`,
+      (count: number, sequence: number[]) => {
+        let result = StatsCalculator.calculateStats(sequence);
+        expect(result.count).toBe(count);
+      }
+    );
   });
 
   describe('Calculate average value in a sequence', () => {
-    it(`knows that the average of the sequence ${firstSequence} is 8.777777777777779`, () => {
-      let result = StatsCalculator.calculateStats(firstSequence);
-      expect(result.average).toBe(8.777777777777779);
-    });
-    it(`knows that the average of the sequence ${secondSequence} is 401`, () => {
-      let result = StatsCalculator.calculateStats(secondSequence);
-      expect(result.average).toBe(401);
-    });
-    it(`knows that the average of the sequence ${thirdSequence} is 94.75`, () => {
-      let result = StatsCalculator.calculateStats(thirdSequence);
-      expect(result.average).toBe(94.75);
-    });
+    it.each([
+      [8.777777777777779, firstSequence],
+      [401, secondSequence],
+      [94.75, thirdSequence],
+      [102, fourthSequence],
+    ])(
+      `knows that %s is the Average value in this sequence %s`,
+      (average: number, sequence: number[]) => {
+        let result = StatsCalculator.calculateStats(sequence);
+        expect(result.average).toBe(average);
+      }
+    );
   });
 });
