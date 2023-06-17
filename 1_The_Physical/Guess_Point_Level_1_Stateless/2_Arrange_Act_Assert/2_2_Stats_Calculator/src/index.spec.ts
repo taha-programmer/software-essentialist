@@ -1,10 +1,12 @@
 import { StatsCalculator } from './index';
 
 describe('stats calculator', () => {
-  const firstSequence = [13, 3, 7, 15, 11, 5, 9];
-  const secondSequence = [601, 101, 401, 701, 501, 201, 301];
-  const thirdSequence = [151, 51, 101, 176, 126, 26, 76];
-  const fourthSequence = [152, 52, 102, 177, 127, 27, 77];
+  const firstSequence = [13, 3, 7, 15, 11, 5, 9, 9, 7];
+  const secondSequence = [
+    601, 101, 401, 701, 501, 201, 301, 601, 101, 501, 401,
+  ];
+  const thirdSequence = [151, 51, 101, 176, 126, 26, 76, 51];
+  const fourthSequence = [152, 52, 177, 127, 27, 77];
 
   it('exists', () => {
     expect(StatsCalculator).toBeDefined();
@@ -61,6 +63,21 @@ describe('stats calculator', () => {
     it(`knows that 177 is the Maximum value in this sequence ${fourthSequence}`, () => {
       let result = StatsCalculator.calculateStats(fourthSequence);
       expect(result.maximum).toBe(177);
+    });
+  });
+
+  describe('Calculate count of a sequence', () => {
+    it(`knows that the count of the sequence ${firstSequence} is ${firstSequence.length}`, () => {
+      let result = StatsCalculator.calculateStats(firstSequence);
+      expect(result.count).toBe(firstSequence.length);
+    });
+    it(`knows that the count of the sequence ${secondSequence} is ${secondSequence.length}`, () => {
+      let result = StatsCalculator.calculateStats(secondSequence);
+      expect(result.count).toBe(secondSequence.length);
+    });
+    it(`knows that the count of the sequence ${thirdSequence} is ${thirdSequence.length}`, () => {
+      let result = StatsCalculator.calculateStats(thirdSequence);
+      expect(result.count).toBe(thirdSequence.length);
     });
   });
 });

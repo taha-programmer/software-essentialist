@@ -16,10 +16,11 @@ export class StatsCalculator {
       maximum = input[index] > maximum ? input[index] : maximum;
     }
 
+    let count: number = input.length;
     return {
       minimum,
       maximum,
-      count: 1,
+      count,
       average: 1,
     };
   };
