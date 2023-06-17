@@ -44,5 +44,16 @@ describe('stats calculator', () => {
       expect(result.minimum).toBe(27);
     });
   });
+
+  describe('Calculate maximum value in a sequence', () => {
+    it(`knows that 15 is the Maximum value in this sequence ${firstSequence}`, () => {
+      let result = StatsCalculator.calculateStats(firstSequence);
+      expect(result.maximum).toBe(15);
+    });
+    it(`knows that 701 is the Maximum value in this sequence ${secondSequence}`, () => {
+      let result = StatsCalculator.calculateStats(secondSequence);
+      expect(result.maximum).toBe(701);
+    });
+  });
 });
 

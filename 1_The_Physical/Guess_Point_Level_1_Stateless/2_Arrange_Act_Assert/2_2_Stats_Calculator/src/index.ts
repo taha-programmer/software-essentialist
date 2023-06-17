@@ -11,9 +11,14 @@ export class StatsCalculator {
       minimum = input[index] < minimum ? input[index] : minimum;
     }
 
+    let maximum: number = input[0];
+    for (let index = 0; index < input.length; index++) {
+      maximum = input[index] > maximum ? input[index] : maximum;
+    }
+
     return {
       minimum,
-      maximum: 1,
+      maximum,
       count: 1,
       average: 1,
     };
