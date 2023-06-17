@@ -7,6 +7,7 @@ describe('stats calculator', () => {
   ];
   const thirdSequence = [151, 51, 101, 176, 126, 26, 76, 51];
   const fourthSequence = [152, 52, 177, 127, 27, 77];
+  const fifthSequence = [2, 4, 21, -8, 53, 40];
 
   it('exists', () => {
     expect(StatsCalculator).toBeDefined();
@@ -31,6 +32,7 @@ describe('stats calculator', () => {
       [101, secondSequence],
       [26, thirdSequence],
       [27, fourthSequence],
+      [-8, fifthSequence],
     ])(
       `knows that %s is the minimum value in this sequence %s`,
       (mimimum: number, sequence: number[]) => {
@@ -46,6 +48,7 @@ describe('stats calculator', () => {
       [701, secondSequence],
       [176, thirdSequence],
       [177, fourthSequence],
+      [53, fifthSequence],
     ])(
       `knows that %s is the Maximum value in this sequence %s`,
       (maximum: number, sequence: number[]) => {
@@ -61,6 +64,7 @@ describe('stats calculator', () => {
       [secondSequence.length, secondSequence],
       [thirdSequence.length, thirdSequence],
       [fourthSequence.length, fourthSequence],
+      [fifthSequence.length, fifthSequence],
     ])(
       `knows that %s is the count of items in sequence %s`,
       (count: number, sequence: number[]) => {
@@ -76,6 +80,7 @@ describe('stats calculator', () => {
       [401, secondSequence],
       [94.75, thirdSequence],
       [102, fourthSequence],
+      [18.666666666666668, fifthSequence],
     ])(
       `knows that %s is the Average value in this sequence %s`,
       (average: number, sequence: number[]) => {
