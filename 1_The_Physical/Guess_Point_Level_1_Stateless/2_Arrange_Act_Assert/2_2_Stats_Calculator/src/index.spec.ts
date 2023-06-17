@@ -3,6 +3,8 @@ import { StatsCalculator } from './index';
 describe('stats calculator', () => {
   const firstSequence = [13, 3, 7, 15, 11, 5, 9];
   const secondSequence = [601, 101, 401, 701, 501, 201, 301];
+  const thirdSequence = [151, 51, 101, 176, 126, 26, 76];
+
   it('exists', () => {
     expect(StatsCalculator).toBeDefined();
   });
@@ -29,6 +31,11 @@ describe('stats calculator', () => {
     it(`knows that 101 is the minimum value in this sequence ${secondSequence}`, () => {
       let result = StatsCalculator.calculateStats(secondSequence);
       expect(result.minimum).toBe(101);
+    });
+
+    it(`knows that 26 is the minimum value in this sequence ${thirdSequence}`, () => {
+      let result = StatsCalculator.calculateStats(thirdSequence);
+      expect(result.minimum).toBe(26);
     });
   });
 });
