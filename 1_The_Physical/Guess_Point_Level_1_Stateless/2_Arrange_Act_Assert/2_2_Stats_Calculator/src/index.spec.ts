@@ -80,5 +80,19 @@ describe('stats calculator', () => {
       expect(result.count).toBe(thirdSequence.length);
     });
   });
-});
 
+  describe('Calculate average value in a sequence', () => {
+    it(`knows that the average of the sequence ${firstSequence} is 8.777777777777779`, () => {
+      let result = StatsCalculator.calculateStats(firstSequence);
+      expect(result.average).toBe(8.777777777777779);
+    });
+    it(`knows that the average of the sequence ${secondSequence} is 401`, () => {
+      let result = StatsCalculator.calculateStats(secondSequence);
+      expect(result.average).toBe(401);
+    });
+    it(`knows that the average of the sequence ${thirdSequence} is 94.75`, () => {
+      let result = StatsCalculator.calculateStats(thirdSequence);
+      expect(result.average).toBe(94.75);
+    });
+  });
+});

@@ -17,11 +17,20 @@ export class StatsCalculator {
     }
 
     let count: number = input.length;
+
+    const calculateAverage = (arr: number[]) => {
+      let total: number = 0;
+      arr.forEach(num => (total += num));
+      return total / arr.length;
+    };
+
+    let average = calculateAverage(input);
+
     return {
       minimum,
       maximum,
       count,
-      average: 1,
+      average,
     };
   };
 }
