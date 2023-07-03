@@ -19,3 +19,18 @@ export async function createUser(req: Request, res: Response) {
     res.status(500).json({ error: 'Failed to create user.' });
   }
 }
+
+export async function editUser(req: Request, res: Response) {
+  const { userId } = req.params;
+  const { email, firstName, lastName, username } = req.body;
+  const user = await prisma.user.update({
+    where: { id: Number(userId) },
+    data: {
+      email,
+      firstName,
+      lastName,
+      username,
+    },
+  });
+  res.json(user);
+}
