@@ -34,3 +34,16 @@ export async function editUser(req: Request, res: Response) {
   });
   res.json(user);
 }
+
+export async function getUserByEmail(req: Request, res: Response) {
+  try {
+    const { email } = req.query;
+
+    const user = await prisma.user.findUnique({
+      where: { email: String(email) },
+    });
+    res.json(user);
+  } catch {
+    res.status(500).json({ error: 'Failed to fetch user.' });
+  }
+}
